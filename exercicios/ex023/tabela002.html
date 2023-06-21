@@ -13,6 +13,7 @@
         table {
             width: 500px;
             border-collapse: collapse;
+            position: relative;
         }
         td, th {
             border: 1px solid black;
@@ -23,8 +24,25 @@
             background-color: gray;
             color: white;
         }
+        thead > tr >th {
+            position: sticky;  /*colavel grudavel*/
+            top: -1px; /*posição zero ao topo da pagina*/
+            background-color: gray;
+        }
         .num {
             text-align: right;
+        }
+        caption {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: lightgray;
+        }
+        tbody > tr:nth-child(odd){ /*pseudo-classe coloca uma tarja cinza cada linha impar no tbody */
+            background-color: beige;
+        }
+        tbody > tr:nth-child(even){  /*pseudo-classe coloca uma tarja cinza cada linha par no tbody */
+            background-color: lightgray;
         }
     </style>
 </head>
@@ -33,6 +51,7 @@
     <!--
         Anatomia para tabelas grandes
             TABLE
+                CAPTION legenda em cima do cabeçalho da tabela
                 THEAD
                     TR, TD, TH
                 TBODY
@@ -41,15 +60,16 @@
                     TH, TD, TH
     -->
     <table>
+        <caption>População da unidades federativas</caption>
         <thead>
             <tr>
-                <th>Estado</th>
-                <th>População</th>
+                <th scope="col">Estado</th> <!--th é um titulo-->
+                <th scope="col" style="width: 100px;">População</th> 
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>São Paulo</td>
+                <td>São Paulo</td> <!--td é um dado-->
                 <td class="num">45 919 049</td>
             </tr>
             <tr>
@@ -60,10 +80,78 @@
                 <td>Rio de Janeiro</td>
                 <td class="num">17 264 943</td>
             </tr>
+            <tr>
+                <td>Bahia</td>
+                <td class="num">14 873 064</td>
+            </tr>
+            <tr>
+                <td>Paraná</td>
+                <td class="num">11 433 957</td>
+            </tr>
+            <tr>
+                <td>Rio Grande do Sul</td>
+                <td class="num">11 377 239</td>
+            </tr>
+            <tr>
+                <td>Pernambuco</td>
+                <td class="num">9 557 071</td>
+            </tr>
+            <tr>
+                <td>Ceará</td>
+                <td class="num">9 132 078</td>
+            </tr>
+            <tr>
+                <td>Para</td>
+                <td class="num">8 602 865</td>
+            </tr>
+            <tr>
+                <td>Santa Catarina</td>
+                <td class="num">7 164 788</td>
+            </tr>
+            <tr>
+                <td>Maranhão</td>
+                <td class="num">7 075 181</td>
+            </tr>
+            <tr>
+                <td>Goiás</td>
+                <td class="num">7 018 354</td>
+            </tr>
+            <tr>
+                <td>Amazonas</td>
+                <td class="num">4 144 597</td>
+            </tr>
+            <tr>
+                <td>Espirito Santo</td>
+                <td class="num">4 018 650</td>
+            </tr>
+            <tr>
+                <td>Paraíba</td>
+                <td class="num">4 018 127</td>
+            </tr>
+            <tr>
+                <td>Rio Grande do Norte</td>
+                <td class="num">3 506 853</td>
+            </tr>
+            <tr>
+                <td>Mato Grosso</td>
+                <td class="num">3 454 456</td>
+            </tr>
+            <tr>
+                <td>Alagoas</td>
+                <td class="num">3 337 357</td>
+            </tr>
+            <tr>
+                <td>Piauí</td>
+                <td class="num">3 273 227</td>
+            </tr>
+            <tr>
+                <td>Distrido Federal</td>
+                <td class="num">3 015 265</td>
+            </tr>
         </tbody>
         <tfoot>
             <tr>
-                <th>Total de Habitantes</th>
+                <th scope="row">Total de Habitantes</th> <!--escopo linha-->
                 <td class="num"><strong>210 147 125</strong></td>
             </tr>
         </tfoot>
